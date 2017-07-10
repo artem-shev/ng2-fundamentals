@@ -1,0 +1,47 @@
+<div class="col-md-12">
+  <h3>create session</h3>
+  <div class="col-md-6">
+    <form [formGroup]="sessionForm" (ngSubmit)="saveSession(sessionForm)">
+      <div class="form-group">
+        <label for="">Session name</label>
+        <em  *ngIf="name.invalid && name.dirty">Required</em>
+        <input type="text" class="form-control" placeholder="session name" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="">Presenter</label>
+        <em  *ngIf="presenter.invalid && presenter.dirty">Required</em>        
+        <input type="text" class="form-control" placeholder="presenter" formControlName="presenter">
+      </div>
+      <div class="form-group">
+        <label for="">Duration:</label>
+        <em  *ngIf="duration.invalid && duration.dirty">Required</em>
+        <select name="" id="" class="form-control" formControlName="duration">
+          <option value="">select duration</option>
+          <option value="1">Half hour</option>
+          <option value="2">1 hour</option>
+          <option value="3">half day</option>
+          <option value="4">full day</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="">Level:</label>
+        <em  *ngIf="level.invalid && level.dirty">Required</em>
+        <select name="" id="" class="form-control" formControlName="level">
+          <option value="">select level</option>
+          <option value="Begginer">begginer</option>
+          <option value="Intermediate">intermediate</option>
+          <option value="Advanced">advanced</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="">Abstract</label>
+        <em  *ngIf="abstract.invalid && abstract.dirty && abstract.errors?.required">Required</em>
+        <em  *ngIf="abstract.invalid && abstract.dirty && abstract.errors?.maxlength">Max length 400</em>
+        <em  *ngIf="abstract.invalid && abstract.dirty && abstract.errors?.restrictedWords">U used restricted words: {{abstract.errors.restrictedWords}}</em>
+        <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="abstract" formControlName="abstract"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="sessionForm.invalid">Save</button>
+      <button class="btn btndefault" type="button" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</div>

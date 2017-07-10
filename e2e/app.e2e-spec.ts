@@ -1,10 +1,10 @@
-import { Ng2FundamentalsPage } from './app.po';
+import { AngularTestPage } from './app.po';
 
-describe('ng2-fundamentals App', () => {
-  let page: Ng2FundamentalsPage;
+describe('angular-test App', () => {
+  let page: AngularTestPage;
 
   beforeEach(() => {
-    page = new Ng2FundamentalsPage();
+    page = new AngularTestPage();
   });
 
   it('should display message saying app works', () => {
